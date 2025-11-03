@@ -27,7 +27,11 @@ namespace Program
             // visitar el árbol aquí
             ListVisitor visitor = new ListVisitor();
             n1.Accept(visitor);
-            Console.WriteLine(visitor.Lista);
+            foreach (string hijo in visitor.Lista)
+            {
+                Console.WriteLine(hijo);   
+            }
+          
         }
     }
 }
