@@ -29,9 +29,9 @@ namespace Program
             n1.Accept(visitor);
             foreach (string hijo in visitor.Lista)
             {
-                Console.WriteLine(hijo);   
+                Console.WriteLine(hijo);
             }
-          
+            
         }
     }
 }
