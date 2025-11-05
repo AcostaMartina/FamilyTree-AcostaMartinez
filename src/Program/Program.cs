@@ -7,14 +7,24 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node n1 = new Node("1");
-            Node n2 = new Node("2");
-            Node n3 = new Node("3");
-            Node n4 = new Node("4");
-            Node n5 = new Node("5");
-            Node n6 = new Node("6");
-            Node n7 = new Node("7");
+            Person abuelo = new Person("José Gonzalez", 72);
+            Person abuela = new Person("Elizabeth",76);
+            Person padre = new Person("Kanye West",47);
+            Person madre = new Person("Laura Raffo",52);
+            Person hijo = new Person("José Abadie",30);
+            Person hijo2 = new Person("Luis Suarez",37);
+            Person hija = new Person("Taylor Swift",35);
 
+            
+            Node n1 = new Node(abuelo);
+            Node n2 = new Node(abuela);
+            Node n3 = new Node(padre);
+            Node n4 = new Node(madre);
+            Node n5 = new Node(hijo);
+            Node n6 = new Node(hijo2);
+            Node n7 = new Node(hija);
+            
+            
             n1.AddChildren(n2);
             n1.AddChildren(n3);
 
@@ -24,14 +34,28 @@ namespace Program
             n3.AddChildren(n6);
             n3.AddChildren(n7);
 
+            abuelo.AddChildren(padre);
+            abuela.AddChildren(madre);
+
+            padre.AddChildren(hijo2);
+            madre.AddChildren(hijo);
+            padre.AddChildren(hijo);
+            madre.AddChildren(hija);
+
             // visitar el árbol aquí
             ListVisitor visitor = new ListVisitor();
-            n1.Accept(visitor);
-            foreach (string hijo in visitor.Lista)
-            {
-                Console.WriteLine(hijo);
-            }
+            AgeVisitor visitor2 = new AgeVisitor();
+            n1.Accept(visitor2);
             
+            n1.Accept(visitor);
+            Console.WriteLine("Los hijos son:");
+            string lista = "";
+            foreach (Person humano in visitor.Lista)
+            {
+                lista +="|" +humano.Name + " "+ humano.Age+ "| ";
+            }
+            Console.WriteLine(lista);
+            Console.WriteLine(visitor2.Sum);
         }
     }
 }

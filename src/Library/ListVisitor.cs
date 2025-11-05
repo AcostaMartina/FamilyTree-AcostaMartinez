@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 namespace Library;
+
 
 public class ListVisitor: IVisitor
 {
-    private List<string> lista = new List<string>();
+    private List<Person> lista = new List<Person>();
 
-    public List<string> Lista
+    public List<Person> Lista
     {
         get
         {

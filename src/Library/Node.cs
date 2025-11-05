@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 
 public class Node
 {
-    private string person;
+    private Person person;
 
     private List<Node> children = new List<Node>();
 
-    public string Person {
+    public Person Person {
         get
         {
             return this.person;
@@ -23,9 +23,9 @@ public class Node
         }
     }
 
-    public Node(string person)
+    public Node(Person persona)
     {
-        this.person = person;
+        this.person = persona;
     }
 
     public void AddChildren(Node n)
