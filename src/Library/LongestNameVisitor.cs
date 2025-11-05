@@ -1,24 +1,24 @@
 ﻿namespace Library;
 
-public class LongestNameVisitor
+public class LongestNameVisitor: IVisitor
  
 {
 
-    private Person older;
+    private Person longest;
 
-    public Person Older
+    public Person Longest
     {
         get
         {
-            return this.older;
+            return this.longest;
         }
     }
 
     public void Visit(Node node)
     {
-        if (Older == null || node.Person.Age > older.Age)
+        if (Longest == null || node.Person.Name.Length > longest.Name.Length)
         {
-            older = node.Person;
+            longest = node.Person;
         }
     }
 }

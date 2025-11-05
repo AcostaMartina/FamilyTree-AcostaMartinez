@@ -46,8 +46,10 @@ namespace Program
             ListVisitor visitor = new ListVisitor();
             AgeVisitor visitor2 = new AgeVisitor();
             OldVisitor visitor3 = new OldVisitor();
+            LongestNameVisitor visitor4 = new LongestNameVisitor();
             n1.Accept(visitor2);
             n1.Accept(visitor3);
+            n1.Accept(visitor4);
             n1.Accept(visitor);
             Console.WriteLine("Los hijos son:");
             string lista = "";
@@ -59,6 +61,7 @@ namespace Program
             Console.WriteLine(visitor2.Sum);
             Console.WriteLine("La edad mayor es de: ");
             Console.WriteLine(visitor3.Older.Age);
+            Console.WriteLine($"El nombre más largo es: {visitor4.Longest.Name}");
         }
     }
 }
