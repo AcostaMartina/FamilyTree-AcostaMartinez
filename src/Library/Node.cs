@@ -40,4 +40,9 @@ public class Node
             item.Accept(visitor);
         }
     }
+
+    public bool IsLeaf
+    {
+        get { return this.Children.Count == 0; }
+    }
 }

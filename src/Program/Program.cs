@@ -47,10 +47,12 @@ namespace Program
             AgeVisitor visitor2 = new AgeVisitor();
             OldVisitor visitor3 = new OldVisitor();
             LongestNameVisitor visitor4 = new LongestNameVisitor();
+            LeafVisitor visitor5 = new LeafVisitor();
             n1.Accept(visitor2);
             n1.Accept(visitor3);
             n1.Accept(visitor4);
             n1.Accept(visitor);
+            n1.Accept(visitor5);
             Console.WriteLine("Los hijos son:");
             string lista = "";
             foreach (Person humano in visitor.Lista)
@@ -62,6 +64,8 @@ namespace Program
             Console.WriteLine("La edad mayor es de: ");
             Console.WriteLine(visitor3.Older.Age);
             Console.WriteLine($"El nombre más largo es: {visitor4.Longest.Name}");
+            Console.WriteLine("Los hijos hoja del nodo son: ");
+            Console.WriteLine(visitor5.LeafNodes);
         }
     }
 }
